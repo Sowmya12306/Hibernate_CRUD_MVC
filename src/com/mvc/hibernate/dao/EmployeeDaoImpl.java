@@ -57,7 +57,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 		try {
 			session = HibernateUtil.getSession();
 			if(session!=null) {
-				emp = session.get(Employee.class, eid);// in L1-cache
+				emp = session.load(Employee.class, eid);// in L1-cache
 				flag = true;
 			}
 		} catch (HibernateException e) {
@@ -124,7 +124,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 				transaction = session.beginTransaction();
 			}
 			if(transaction!=null) {
-				emp = session.get(Employee.class, eid);
+				emp = findById(eid);
 				if(emp!=null) {
 				session.delete(emp);
 				flag=true;
