@@ -68,52 +68,52 @@ public class TestApp {
 					id=Integer.parseInt(br.readLine());
 					employeeRecord = employeeController.findById(id);
 					if(employeeRecord != null) {
-						Employee employee = new Employee();
-						employee.setId(id);
+						
+						employeeRecord.setId(id);
 					    System.out.println("EmployeeName :: [existing name is :: "+ employeeRecord.getName() + "]");
 					    String new_name = br.readLine();
 					    //updating name 
 					    if(new_name==null ||new_name.equals("")) {
-					    	employee.setName(employeeRecord.getName());
+					    	employeeRecord.setName(employeeRecord.getName());
 					    }
 					    else {
-					    	employee.setName(new_name);
+					    	employeeRecord.setName(new_name);
 					    }
 					    //updating email
 					    System.out.println("EmployeeEmail :: [existing email is :: "+ employeeRecord.getEmail() + "]");
 					    String new_email = br.readLine();
 					    
 					    if(new_email == null ||new_email.equals("")) {
-					    	employee.setEmail(employeeRecord.getEmail());
+					    	employeeRecord.setEmail(employeeRecord.getEmail());
 					    }
 					    else {
-					    	employee.setEmail(new_email);
+					    	employeeRecord.setEmail(new_email);
 					    }
 					    //updating city
 					    System.out.println("EmployeeCity :: [existing city is :: "+ employeeRecord.getCity() + "]");
 					    String new_city = br.readLine();
 					    
 					    if(new_city==null ||new_city.equals("")) {
-					    	employee.setCity(employeeRecord.getCity());
+					    	employeeRecord.setCity(employeeRecord.getCity());
 					    }
 					    else {
-					    	employee.setCity(new_city);
+					    	employeeRecord.setCity(new_city);
 					    }
 					    //updating country 
 					    System.out.println("EmployeeCountry :: [existing country is :: "+ employeeRecord.getCountry() + "]");
 					    String new_country = br.readLine();
 					    
 					    if(new_country == null ||new_country.equals("")) {
-					    	employee.setCountry(employeeRecord.getCountry());
+					    	employeeRecord.setCountry(employeeRecord.getCountry());
 					    }
 					    else {
-					    	employee.setCountry(new_country);
+					    	employeeRecord.setCountry(new_country);
 					    }
 					    
-					    status = employeeController.updateById(employee);
+					    status = employeeController.updateById(employeeRecord);
 					    if (status.equalsIgnoreCase("success")) {
 					    	System.out.println("Record Updated Succesfully...3");
-							System.out.println(employee);
+							System.out.println(employeeRecord);
 						} else if (status.equalsIgnoreCase("failure")) {
 							System.out.println("Record updation failed ");
 						} 
